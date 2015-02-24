@@ -1,0 +1,66 @@
+{
+  "Rosters ~660 points": [
+    {
+      "html": "CSM Sorc.html",
+      "rosz": "CSM Sorc.rosz",
+      "title": "Chaos Space Marines with Sorcerer",
+      "class": "csm1"
+    },
+    {
+      "html": "Dark Angels.html",
+      "rosz": "Dark Angels.rosz",
+      "title": "Dark Angels with Rawenwing",
+      "class": "da1"
+    },
+    {
+      "html": "Eldars.html",
+      "rosz": "Eldars.rosz",
+      "title": "Eldars",
+      "class": "eldars1"
+    },
+    {
+      "html": "Necrons.html",
+      "rosz": "Necrons.rosz",
+      "title": "Necrons",
+      "class": "necrons1"
+    },
+    {
+      "html": "Dark Angels Magic.html",
+      "rosz": "Dark Angels Magic.rosz",
+      "title": "Dark Angels with Librarian",
+      "class": "da2"
+    },
+    {
+      "html": "CSM.html",
+      "rosz": "CSM.rosz",
+      "title": "Chaos Space Marines with Marks",
+      "class": "csm2"
+    }
+  ],
+  "Rosters ~250 points": [
+    {
+      "html": "Dragons 250.html",
+      "rosz": "Dragons 250.rosz",
+      "title": "Eldars, Fire Dragons + Farseer",
+      "class": "eldars2"
+    },
+    {
+      "html": "Eldars 250.html",
+      "rosz": "Eldars 250.rosz",
+      "title": "Eldars, Wraithblades + Warlock",
+      "class": "eldars3"
+    },
+    {
+      "html": "Librarian 250.html",
+      "rosz": "Librarian 250.rosz",
+      "title": "Dark Angels, Librarian + Ravenwing command",
+      "class": "da3"
+    },
+    {
+      "html": "Tactical 250.html",
+      "rosz": "Tactical 250.rosz",
+      "title": "Dark Angels, Tactical squad + Company Master",
+      "class": "da4"
+    }
+  ]
+}
