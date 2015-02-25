@@ -15,6 +15,16 @@
 
     <body>
     <img src="images/seal.png" class="right" style="margin-right: 40px">
+
+    <nav>
+	    <ul id="slide-out" class="side-nav fixed">
+		    <li><a href="#!">First Sidebar Link</a></li>
+		    <li><a href="#!">Second Sidebar Link</a></li>
+	    </ul>
+	    <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    </nav>
+
+
     <div class="container">
     	<div id="rosters"></div>
 		<a class="waves-effect waves-light btn teal darken-4 white-text" href="rosters.pdf">
@@ -31,6 +41,7 @@
       <script type="text/javascript" src="bower_components/mustache/mustache.min.js"></script>
       <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"></script>
       <script type="text/javascript">
+      		$(".button-collapse").sideNav();
       		var template = '<h4>{{category}}</h4>' +
       		'<div class="collection">' +
       		'{{#items}}' +
@@ -49,7 +60,7 @@
 				$.each(data, function(key, value){
 					$('#rosters').append(Mustache.render(template, {category: key, items: value}))
 				})
-				$('.dropdown-button').dropdown();
+				$('.dropdown-button').dropdown({hover: false});
 			})
       </script>
     </body>

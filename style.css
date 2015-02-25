@@ -1,3 +1,7 @@
+nav {
+	background-color: white;
+}
+
 span.badge.new:after {
 	content: "";
 }
@@ -7,6 +11,11 @@ span.badge.new:after {
 }
 .collection a.collection-item  {
 	color: #aa3333;
+}
+.collection a.collection-item:hover  {
+	color: #004d40;
+        font-weight: bold;
+        background-color: white !important;
 }
 .btn.secondary-content {
 	background-color: #353535;
@@ -28,6 +37,9 @@ span.badge.new:after {
 	background-position-x: 280px;
 	background-repeat-x: no-repeat;
 	background-color: #eee;
+}
+.da2:hover{
+	background-color: #eee !important;
 }
 .csm1 {
 	background-image: url("images/csm1.jpg");
