@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "materialize": "~0.95.2",
-    "mustache": "~1.1.0"
+    "mustache": "~1.1.0",
+    "director": "~1.2.8"
   }
 }
