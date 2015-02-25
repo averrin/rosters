@@ -62,6 +62,7 @@
 	    					<th>Name</th>
 	    					<th>Count</th>
 	    					<th>Paint</th>
+	    					<th></th>
 	    				</tr>
 	    			</thead>
 	    			<tbody>
@@ -94,12 +95,13 @@
 			'{{/items}}' +
 			'</div>';
 
-			var models_template = '<tr><td colspan=3 class="teal darken-4 white-text"><h5>{{category}}</h5></td></tr>' +
+			var models_template = '<tr><td colspan=4 class="teal darken-4 white-text"><h5>{{category}}</h5></td></tr>' +
       		'{{#items}}' +
 	      		'<tr>' +
 	      			'<td>{{name}}</td>' +
 	      			'<td>{{count}}</td>' +
 	      			'<td>{{{paint}}}</td>' +
+	      			'<td>{{{url}}}</td>' +
 	      		'</tr>' +
       		'{{/items}}';
 
@@ -150,6 +152,12 @@
 								p = '<b class="grey-text text-lighten-1">ZERO</b>'
 							}
 							return p;
+						}
+						e.url = function(){
+							if(this.photos){
+								return '<a href="' + e.photos + '" style="color: #aa3333">LINK</a>';
+							}
+							return ''
 						}
 					})
 					$('#models tbody').append(Mustache.render(models_template, {category: key, items: value}))
