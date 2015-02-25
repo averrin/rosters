@@ -1,0 +1,16 @@
+[
+  {"name": "Fire Dragons", "count": 5, "painted": 2, "faction": "Eldars"},
+  {"name": "Fire Dragons Exarch", "count": 1, "painted": 1, "faction": "Eldars"},
+  {"name": "Eldrad Ulthran", "count": 1, "painted": 0, "faction": "Eldars"},
+  {"name": "Farseer", "count": 1, "painted": 0, "faction": "Eldars"},
+  {"name": "War Walker", "count": 1, "painted": 0, "faction": "Eldars"},
+  {"name": "Warlocks", "count": 3, "painted": 0, "faction": "Eldars"},
+  {"name": "Wraithblades", "count": 5, "painted": 1, "faction": "Eldars"},
+  {"name": "Wraithguards", "count": 5, "painted": 0, "faction": "Eldars"},
+  {"name": "Howling Banshees", "count": 6, "painted": 0, "faction": "Eldars"},
+  {"name": "Death Jester", "count": 1, "painted": 0, "faction": "Eldars"},
+  {"name": "Shadowseer", "count": 1, "painted": 0, "faction": "Eldars"},
+  {"name": "Harlequin Troupe", "count": 5, "painted": 0, "faction": "Eldars"},
+  {"name": "Harlequin Troupe Master", "count": 1, "painted": 0, "faction": "Eldars"},
+  {"name": "Shadow Spectres", "count": 5, "painted": 0, "faction": "Eldars"}
+]
