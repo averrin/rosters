@@ -1,16 +1,29 @@
-[
-  {"name": "Fire Dragons", "count": 5, "painted": 2, "faction": "Eldars"},
-  {"name": "Fire Dragons Exarch", "count": 1, "painted": 1, "faction": "Eldars"},
-  {"name": "Eldrad Ulthran", "count": 1, "painted": 0, "faction": "Eldars"},
-  {"name": "Farseer", "count": 1, "painted": 0, "faction": "Eldars"},
-  {"name": "War Walker", "count": 1, "painted": 0, "faction": "Eldars"},
-  {"name": "Warlocks", "count": 3, "painted": 0, "faction": "Eldars"},
-  {"name": "Wraithblades", "count": 5, "painted": 1, "faction": "Eldars"},
-  {"name": "Wraithguards", "count": 5, "painted": 0, "faction": "Eldars"},
-  {"name": "Howling Banshees", "count": 6, "painted": 0, "faction": "Eldars"},
-  {"name": "Death Jester", "count": 1, "painted": 0, "faction": "Eldars"},
-  {"name": "Shadowseer", "count": 1, "painted": 0, "faction": "Eldars"},
-  {"name": "Harlequin Troupe", "count": 5, "painted": 0, "faction": "Eldars"},
-  {"name": "Harlequin Troupe Master", "count": 1, "painted": 0, "faction": "Eldars"},
-  {"name": "Shadow Spectres", "count": 5, "painted": 0, "faction": "Eldars"}
-]
+{"Eldars": [
+  {"name": "Fire Dragons", "count": 5, "painted": 2},
+  {"name": "Fire Dragons Exarch", "count": 1, "painted": 1},
+  {"name": "Wraithblades", "count": 5, "painted": 1},
+  {"name": "Eldrad Ulthran", "count": 1, "painted": 0},
+  {"name": "Farseer", "count": 1, "painted": 0},
+  {"name": "War Walker", "count": 1, "painted": 0},
+  {"name": "Warlocks", "count": 3, "painted": 0},
+  {"name": "Wraithguards", "count": 5, "painted": 0},
+  {"name": "Howling Banshees", "count": 6, "painted": 0},
+  {"name": "Death Jester", "count": 1, "painted": 0},
+  {"name": "Shadowseer", "count": 1, "painted": 0},
+  {"name": "Harlequin Troupe", "count": 5, "painted": 0},
+  {"name": "Harlequin Troupe Master", "count": 1, "painted": 0},
+  {"name": "Shadow Spectres", "count": 5, "painted": 0}
+],
+"Dark Angels": [
+  {"name": "Tactical Squad", "count": 9, "painted": 9},
+  {"name": "Tactical Squad Sgt", "count": 1, "painted": 1},
+  {"name": "Deathwing Terminator Squad", "count": 4, "painted": 2},
+  {"name": "Deathwing Terminator Squad Sgt", "count": 1, "painted": 0},
+  {"name": "Ravenwing Attack Squadron", "count": 2, "painted": 1},
+  {"name": "Ravenwing Attack Squadron Sgt", "count": 1, "painted": 0},
+  {"name": "Company Master", "count": 1, "painted": 0},
+  {"name": "Librarian", "count": 1, "painted": 0}
+],
+"Chaos Space Marines": [],
+"Necrons": []
+}

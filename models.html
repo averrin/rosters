@@ -36,7 +36,6 @@
     				<tr>
     					<th>Name</th>
     					<th>Count</th>
-    					<th>Faction</th>
     					<th>Paint</th>
     				</tr>
     			</thead>
@@ -63,17 +62,18 @@
       <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"></script>
       <script type="text/javascript">
       		$(".button-collapse").sideNav();
-      		var template = '{{#items}}' +
-      		'<tr>' +
-      			'<td>{{name}}</td>' +
-      			'<td>{{count}}</td>' +
-      			'<td>{{faction}}</td>' +
-      			'<td>{{{paint}}}</td>' +
-      		'</tr>' +
+      		var template = '<tr><td colspan=3><h5>{{category}}</h5></td></tr>' +
+      		'{{#items}}' +
+	      		'<tr>' +
+	      			'<td>{{name}}</td>' +
+	      			'<td>{{count}}</td>' +
+	      			'<td>{{{paint}}}</td>' +
+	      		'</tr>' +
       		'{{/items}}';
 			$.get("data/collection.json", function(data){
 				$('.preloader-wrapper').hide();
-				$.each(data, function(i, e){
+				$.each(data, function(key, value){
+					$.each(value, function(i, e){
 					e.paint = function(){
 						var p = this.painted / this.count * 100 + '%';
 						if(p === '100%'){
@@ -82,7 +82,8 @@
 						return p;
 					}
 				})
-				$('#models tbody').html(Mustache.render(template, {items: data}))
+				$('#models tbody').append(Mustache.render(template, {category: key, items: value}))
+				})
 			})
       </script>
     </body>
