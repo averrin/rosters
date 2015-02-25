@@ -24,6 +24,13 @@
   {"name": "Company Master", "count": 1, "painted": 0},
   {"name": "Librarian", "count": 1, "painted": 0}
 ],
-"Chaos Space Marines": [],
+"Chaos Space Marines": [
+  {"name": "Helbrute", "count": 1, "painted": 1},
+  {"name": "Chaos Cultists", "count": 18, "painted": 5},
+  {"name": "Chaos Cultists Champion", "count": 2, "painted": 1},
+  {"name": "Chosen", "count": 5, "painted": 2},
+  {"name": "Chosen Champion", "count": 1, "painted": 0},
+  {"name": "Chaos Lord", "count": 1, "painted": 0}
+],
 "Necrons": []
 }
