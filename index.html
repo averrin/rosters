@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
       <link rel="icon" href="images/fav.ico" sizes="32x32">
 
-      <title>Warhammer rosters</title>
+      <title>Warhammer Rosters</title>
 
     </head>
 
@@ -19,8 +19,9 @@
     <nav>
 	    <ul id="slide-out" class="side-nav fixed">
 	    	<li class="grey darken-4">Averrin's WH40k</li>
-		    <li class="active"><a href="/">Rosters</a></li>
-		    <li><a href="models.html">Models</a></li>
+		    <li id="rosters_link"><a href="#/rosters">Rosters</a></li>
+		    <li id="models_link"><a href="#/models">Models</a></li>
+		    <li id="books_link"><a href="#/books">Books</a></li>
 		    <li><a href="http://wh40k.averr.in">Blog</a></li>
 	    </ul>
 	    <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
@@ -29,19 +30,48 @@
 
     <main>
      <div class="container">
-    	<div id="rosters">
-    		<div class="preloader-wrapper big active">
-		      <div class="spinner-layer spinner-blue">
-		        <div class="circle-clipper left">
-		          <div class="circle"></div>
-		        </div><div class="gap-patch">
-		          <div class="circle"></div>
-		        </div><div class="circle-clipper right">
-		          <div class="circle"></div>
-		        </div>
-		      </div>
+		<div class="preloader-wrapper big active">
+			<div class="spinner-layer spinner-blue">
+				<div class="circle-clipper left">
+					<div class="circle"></div>
+				</div>
+				<div class="gap-patch">
+					<div class="circle"></div>
+				</div>
+				<div class="circle-clipper right">
+					<div class="circle"></div>
+				</div>
+			</div>
+		</div>
+    	<div id="rosters"></div>
+    	<div id="models" style="display: none;">
+    		<h4>My models</h4>
+	    	<div id="models">
+	    		<table class="striped">
+	    			<thead>
+	    				<tr>
+	    					<th>Name</th>
+	    					<th>Count</th>
+	    					<th>Paint</th>
+	    				</tr>
+	    			</thead>
+	    			<tbody>
+	    			</tbody>
+	    		</table>
+				 <div class="preloader-wrapper big active">
+			      <div class="spinner-layer spinner-blue">
+			        <div class="circle-clipper left">
+			          <div class="circle"></div>
+			        </div><div class="gap-patch">
+			          <div class="circle"></div>
+			        </div><div class="circle-clipper right">
+			          <div class="circle"></div>
+			        </div>
+			      </div>
+	    	</div>
     	</div>
-    	<div id="buttons">
+    	<div id="books" style="display: none;"></div>
+    	<div id="buttons" style="display: none;">
 			<a class="waves-effect waves-light btn teal darken-4 white-text" href="rosters.pdf">
 		  		Print version
 		  	</a>
@@ -54,13 +84,14 @@
 	</main>
 
       <!--Import jQuery before materialize.js-->
+      <script src="https://rawgit.com/flatiron/director/master/build/director.min.js"></script>
       <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
       <script type="text/javascript" src="bower_components/mustache/mustache.min.js"></script>
       <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"></script>
       <script type="text/javascript">
-      		$('#buttons').hide();
+      $(function(){
       		$(".button-collapse").sideNav();
-      		var template = '<h4>{{category}}</h4>' +
+      		var rosters_template = '<h4>{{category}}</h4>' +
       		'<div class="collection">' +
       		'{{#items}}' +
 			'  <a class="collection-item {{class}}" href="rosters/{{html}}">{{title}}</a>' +
@@ -73,14 +104,84 @@
 			'  </ul>' +
 			'{{/items}}' +
 			'</div>';
-			$.get("data/rosters.json", function(data){
-				$('#rosters').html('');
-				$.each(data, function(key, value){
-					$('#rosters').append(Mustache.render(template, {category: key, items: value}))
+
+			var models_template = '<tr><td colspan=3><h5>{{category}}</h5></td></tr>' +
+      		'{{#items}}' +
+	      		'<tr>' +
+	      			'<td>{{name}}</td>' +
+	      			'<td>{{count}}</td>' +
+	      			'<td>{{{paint}}}</td>' +
+	      		'</tr>' +
+      		'{{/items}}';
+
+			function hideAll(){
+				$('.preloader-wrapper').show();
+				$('#rosters').hide();
+				$('#models').hide();
+				$('#books').hide();
+				$('#buttons').hide();
+				$('nav li').removeClass('active')
+			}
+			function rosters(){
+				hideAll()
+				$.get("data/rosters.json", function(data){
+					$('#rosters').html('');
+					$('.preloader-wrapper').hide()
+					$('#rosters').show();
+					$.each(data, function(key, value){
+						$('#rosters').append(Mustache.render(rosters_template, {category: key, items: value}))
+					})
+					$('#buttons').show();
+					$('.dropdown-button').dropdown({hover: false});
+					$('title').html('Warhammer Rosters')
+					$('#rosters_link').addClass('active');
 				})
-				$('#buttons').show();
-				$('.dropdown-button').dropdown({hover: false});
-			})
+			}
+			function models(){
+				hideAll()
+				$.get("data/collection.json", function(data){
+					$('#models tbody').html('');
+					$('.preloader-wrapper').hide()
+					$('#models').show();
+					$.each(data, function(key, value){
+						$.each(value, function(i, e){
+						e.paint = function(){
+							var p = this.painted / this.count * 100 + '%';
+							if(p === '100%'){
+								p = '<b class="teal-text">FULL</b>'
+							}
+							return p;
+						}
+					})
+					$('#models tbody').append(Mustache.render(models_template, {category: key, items: value}))
+					})
+				})
+				$('#models_link').addClass('active');
+				$('title').html('Warhammer Models')
+			}
+			function books(){
+				hideAll()
+				$.get("books/index.html", function(data){
+					$('#books').html('');
+					$('.preloader-wrapper').hide()
+					$('#books').show();
+					$('#books').html(data)
+					$('title').html('Warhammer Books')
+					$('#books_link').addClass('active');
+				})
+			}
+			var routes = {
+		        '/rosters': rosters,
+		        '/models': models,
+		        '/books': books
+		      };
+
+     		var router = Router(routes);
+     		router.init();
+     		if(!location.hash){
+     			location = '#/rosters';
+     		}
+	  });
       </script>
     </body>
   </html>
