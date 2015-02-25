@@ -142,9 +142,12 @@
 					$.each(data, function(key, value){
 						$.each(value, function(i, e){
 						e.paint = function(){
-							var p = this.painted / this.count * 100 + '%';
+							var p = Math.round(this.painted / this.count * 100) + '%';
 							if(p === '100%'){
 								p = '<b class="teal-text">FULL</b>'
+							}
+							if(p === '0%'){
+								p = '<b class="grey-text text-lighten-1">ZERO</b>'
 							}
 							return p;
 						}
