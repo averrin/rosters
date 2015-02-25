@@ -31,13 +31,13 @@
      <div class="container">
      	<h4>My models</h4>
     	<div id="models">
-    		<table>
+    		<table class="striped">
     			<thead>
     				<tr>
     					<th>Name</th>
     					<th>Count</th>
     					<th>Faction</th>
-    					<th>Paint %</th>
+    					<th>Paint</th>
     				</tr>
     			</thead>
     			<tbody>
@@ -68,14 +68,18 @@
       			'<td>{{name}}</td>' +
       			'<td>{{count}}</td>' +
       			'<td>{{faction}}</td>' +
-      			'<td>{{paint}}</td>' +
+      			'<td>{{{paint}}}</td>' +
       		'</tr>' +
       		'{{/items}}';
 			$.get("data/collection.json", function(data){
 				$('.preloader-wrapper').hide();
 				$.each(data, function(i, e){
 					e.paint = function(){
-						return this.painted / this.count * 100;
+						var p = this.painted / this.count * 100 + '%';
+						if(p === '100%'){
+							p = '<b class="teal-text">FULL</b>'
+						}
+						return p;
 					}
 				})
 				$('#models tbody').html(Mustache.render(template, {items: data}))
