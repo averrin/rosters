@@ -19,8 +19,8 @@
     <nav>
 	    <ul id="slide-out" class="side-nav fixed">
 	    	<li class="grey darken-4">Averrin's WH40k</li>
-		    <li class="active"><a href="/">Rosters</a></li>
-		    <li><a href="models.html">Models</a></li>
+		    <li><a href="..">Rosters</a></li>
+		    <li class="active"><a href="models.html">Models</a></li>
 		    <li><a href="http://wh40k.averr.in">Blog</a></li>
 	    </ul>
 	    <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
@@ -29,16 +29,21 @@
 
     <main>
      <div class="container">
-    	<div id="rosters"></div>
-    	<div id="buttons">
-			<a class="waves-effect waves-light btn teal darken-4 white-text" href="rosters.pdf">
-		  		Print version
-		  	</a>
-		  	&nbsp;
-		  	<a class="waves-effect waves-light btn brown darken-4 white-text" href="https://github.com/averrin/rosters">
-		  		GitHub
-		  	</a>
-	  	</div>
+    	<div id="models">
+    		<table>
+    			<thead>
+    				<tr>
+    					<th>Name</th>
+    					<th>Count</th>
+    					<th>Faction</th>
+    					<th>Paint %</th>
+    				</tr>
+    			</thead>
+    			<tbody>
+    				
+    			</tbody>
+    		</table>
+    	</div>
   	 </div>
 	</main>
 
@@ -47,28 +52,22 @@
       <script type="text/javascript" src="bower_components/mustache/mustache.min.js"></script>
       <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"></script>
       <script type="text/javascript">
-      		$('#buttons').hide();
       		$(".button-collapse").sideNav();
-      		var template = '<h4>{{category}}</h4>' +
-      		'<div class="collection">' +
-      		'{{#items}}' +
-			'  <a class="collection-item {{class}}" href="rosters/{{html}}">{{title}}</a>' +
-			'  	<a class="waves-effect waves-light btn secondary-content dropdown-button" href="#" data-activates="dd-{{class}}">' +
-			'  		download' +
-			'  	</a>' +
-			'  <ul id="dd-{{class}}" class="dropdown-content">' +
-			'    <li><a href="sources/{{rosz}}">Source (rosz)</a></li>' +
-			'    <li><a href="pdf/{{html}}.pdf">PDF</a></li>' +
-			'  </ul>' +
-			'{{/items}}' +
-			'</div>';
-			$.get("data/rosters.json", function(data){
-				$('#rosters').html('');
-				$.each(data, function(key, value){
-					$('#rosters').append(Mustache.render(template, {category: key, items: value}))
+      		var template = '{{#items}}' +
+      		'<tr>' +
+      			'<td>{{name}}</td>' +
+      			'<td>{{count}}</td>' +
+      			'<td>{{faction}}</td>' +
+      			'<td>{{paint}}</td>' +
+      		'</tr>' +
+      		'{{/items}}';
+			$.get("data/collection.json", function(data){
+				$.each(data, function(i, e){
+					e.paint = function(){
+						return this.painted / this.count * 100;
+					}
 				})
-				$('#buttons').show();
-				$('.dropdown-button').dropdown({hover: false});
+				$('#models tbody').html(Mustache.render(template, {items: data}))
 			})
       </script>
     </body>
