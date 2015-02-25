@@ -16,66 +16,36 @@
     <body>
     <img src="images/seal.png" class="right" style="margin-right: 40px">
     <div class="container">
-		<h4>Rosters ~660 points</h4>
-		<div class="collection">
-		  <a class="collection-item csm1" href="CSM Sorc.html">Chaos Space Marines with Sorcerer</a>
-		  	<a class="waves-effect waves-light btn secondary-content" href="sources/CSM Sorc.rosz">
-		  		<i class="mdi-action-get-app"></i> .rosz
-		  	</a>
-		  <a class="collection-item da1" href="Dark Angels.html">Dark Angels with Rawenwing</a>
-		  	<a class="waves-effect waves-light btn secondary-content" href="sources/Dark Angels.rosz">
-		  		<i class="mdi-action-get-app"></i> .rosz
-		  	</a>
-		  <a class="collection-item eldars1" href="Eldars.html">Eldars</a>
-		  	<a class="waves-effect waves-light btn secondary-content" href="sources/Eldars.rosz">
-		  		<i class="mdi-action-get-app"></i> .rosz
-		  	</a>
-		  	<a class="collection-item necrons1" href="Necrons.html">Necrons</a>
-		  	<a class="waves-effect waves-light btn secondary-content" href="sources/Necrons.rosz">
-		  		<i class="mdi-action-get-app"></i> .rosz
-		  	</a>
-		  			  <a class="collection-item da2" href="Dark Angels Magic.html">Dark Angels with Librarian</a>
-		  	<a class="waves-effect waves-light btn secondary-content" href="sources/Dark Angels Magic.rosz">
-		  		<i class="mdi-action-get-app"></i> .rosz
-		  	</a>
-		  	<a class="collection-item csm2" href="CSM.html">Chaos Space Marines with Marks</a>
-		  	<a class="waves-effect waves-light btn secondary-content" href="sources/CSM.rosz">
-		  		<i class="mdi-action-get-app"></i> .rosz
-		  	</a>
-		</div>
-		<h4>Rosters ~250 points</h4>
-		<div class="collection">
-		  <a class="collection-item eldars2" href="Dragons 250.html">Eldars, Fire Dragons + Farseer</a>
-		  	<a class="waves-effect waves-light btn secondary-content" href="sources/Dragons 250.rosz">
-		  		<i class="mdi-action-get-app"></i> .rosz
-		  	</a>
-		  <a class="collection-item eldars3" href="Eldars 250.html">Eldars, Wraithblades + Warlock</a>
-		  	<a class="waves-effect waves-light btn secondary-content" href="sources/Eldars 250.rosz">
-		  		<i class="mdi-action-get-app"></i> .rosz
-		  	</a>
-		  			  <a class="collection-item da3" href="Librarian 250.html">Dark Angels, Librarian + Ravenwing command</a>
-		  	<a class="waves-effect waves-light btn secondary-content" href="sources/Librarian 250.rosz">
-		  		<i class="mdi-action-get-app"></i> .rosz
-		  	</a>
-		  			  <a class="collection-item da4" href="Tactical 250.html">Dark Angels, Tactical squad + Company Master</a>
-		  	<a class="waves-effect waves-light btn secondary-content" href="sources/Tactical 250.rosz">
-		  		<i class="mdi-action-get-app"></i> .rosz
-		  	</a>
-		</div>
+    	<div id="rosters"></div>
 		<a class="waves-effect waves-light btn teal darken-4 white-text" href="rosters.pdf">
-		  		Print version
-		  	</a>
-		  	&nbsp;
-		  	<a class="waves-effect waves-light btn brown darken-4 white-text" href="https://github.com/averrin/rosters">
-		  		GitHub
-		  	</a>
-		</div>
-
-		<!-- <a href="https://github.com/averrin/rosters">Github</a> Ну да, а как же. Делаем пулл-реквесты=) -->
+	  		Print version
+	  	</a>
+	  	&nbsp;
+	  	<a class="waves-effect waves-light btn brown darken-4 white-text" href="https://github.com/averrin/rosters">
+	  		GitHub
+	  	</a>
+	</div>
 
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
       <script type="text/javascript" src="bower_components/mustache/mustache.min.js"></script>
+      <script type="text/javascript">
+      		var template = '<h4>{{category}}</h4>' +
+      		'<div class="collection">' +
+      		'{{#items}}' +
+			'  <a class="collection-item {{class}}" href="{{html}}">{{title}}</a>' +
+			'  	<a class="waves-effect waves-light btn secondary-content" href="sources/{{rosz}}">' +
+			'  		<i class="mdi-action-get-app"></i> .rosz' +
+			'  	</a>' +
+			'{{/items}}' +
+			'</div>';
+			$.get("http://averr.in/wh40k/rosters.json", function(data){
+				$('#rosters').html('');
+				$.each(data, function(key, value){
+					$('#rosters').append(Mustache.render(template, {category: key, items: value}))
+				})
+			})
+      </script>
       <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"></script>
     </body>
   </html>
