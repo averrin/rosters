@@ -103,6 +103,13 @@
 	      		'</tr>' +
       		'{{/items}}';
 
+      		var books_template = '<h4>Books</h4>' +
+      		'<div class="collection">' +
+      		'{{#items}}' +
+			'  <a class="collection-item" href="books/{{filename}}">{{name}}</a>' +
+			'{{/items}}' +
+			'</div>';
+
 			function hideAll(){
 				$('.preloader-wrapper').show();
 				$('#rosters').hide();
@@ -150,10 +157,10 @@
 			}
 			function books(){
 				hideAll()
-				$.get("books/index.html", function(data){
+				$.get("data/books.json", function(data){
 					$('.preloader-wrapper').hide()
 					$('#books').show();
-					$('#books').html(data)
+					$('#books').html(Mustache.render(books_template, {items: data}))
 					$('title').html('Warhammer Books')
 					$('#books_link').addClass('active');
 				})
