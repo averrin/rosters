@@ -46,7 +46,6 @@
     	<div id="rosters"></div>
     	<div id="models" style="display: none;">
     		<h4>My models</h4>
-	    	<div id="models">
 	    		<table class="striped">
 	    			<thead>
 	    				<tr>
@@ -58,17 +57,6 @@
 	    			<tbody>
 	    			</tbody>
 	    		</table>
-				 <div class="preloader-wrapper big active">
-			      <div class="spinner-layer spinner-blue">
-			        <div class="circle-clipper left">
-			          <div class="circle"></div>
-			        </div><div class="gap-patch">
-			          <div class="circle"></div>
-			        </div><div class="circle-clipper right">
-			          <div class="circle"></div>
-			        </div>
-			      </div>
-	    	</div>
     	</div>
     	<div id="books" style="display: none;"></div>
     	<div id="buttons" style="display: none;">
@@ -162,7 +150,6 @@
 			function books(){
 				hideAll()
 				$.get("books/index.html", function(data){
-					$('#books').html('');
 					$('.preloader-wrapper').hide()
 					$('#books').show();
 					$('#books').html(data)
