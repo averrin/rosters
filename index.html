@@ -29,14 +29,19 @@
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
       <script type="text/javascript" src="bower_components/mustache/mustache.min.js"></script>
+      <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"></script>
       <script type="text/javascript">
       		var template = '<h4>{{category}}</h4>' +
       		'<div class="collection">' +
       		'{{#items}}' +
 			'  <a class="collection-item {{class}}" href="rosters/{{html}}">{{title}}</a>' +
-			'  	<a class="waves-effect waves-light btn secondary-content" href="sources/{{rosz}}">' +
-			'  		<i class="mdi-action-get-app"></i> .rosz' +
+			'  	<a class="waves-effect waves-light btn secondary-content dropdown-button" href="#" data-activates="dd-{{class}}">' +
+			'  		download' +
 			'  	</a>' +
+			'  <ul id="dd-{{class}}" class="dropdown-content">' +
+			'    <li><a href="sources/{{rosz}}">Source (rosz)</a></li>' +
+			'    <li><a href="pdf/{{pdf}}">PDF</a></li>' +
+			'  </ul>' +
 			'{{/items}}' +
 			'</div>';
 			$.get("data/rosters.json", function(data){
@@ -44,9 +49,18 @@
 				$.each(data, function(key, value){
 					$('#rosters').append(Mustache.render(template, {category: key, items: value}))
 				})
+				$('.dropdown-button').dropdown({
+				      inDuration: 300,
+				      outDuration: 225,
+				      constrain_width: false, // Does not change width of dropdown to that of the activator
+				      hover: false, // Activate on click
+				      alignment: 'left', // Aligns dropdown to left or right edge (works with constrain_width)
+				      gutter: 0, // Spacing from edge
+				      belowOrigin: false // Displays dropdown below the button
+				    }
+				  );
 			})
       </script>
-      <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"></script>
     </body>
   </html>
 
