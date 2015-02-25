@@ -33,13 +33,13 @@
       		var template = '<h4>{{category}}</h4>' +
       		'<div class="collection">' +
       		'{{#items}}' +
-			'  <a class="collection-item {{class}}" href="{{html}}">{{title}}</a>' +
+			'  <a class="collection-item {{class}}" href="rosters/{{html}}">{{title}}</a>' +
 			'  	<a class="waves-effect waves-light btn secondary-content" href="sources/{{rosz}}">' +
 			'  		<i class="mdi-action-get-app"></i> .rosz' +
 			'  	</a>' +
 			'{{/items}}' +
 			'</div>';
-			$.get("http://averr.in/wh40k/rosters.json", function(data){
+			$.get("data/rosters.json", function(data){
 				$('#rosters').html('');
 				$.each(data, function(key, value){
 					$('#rosters').append(Mustache.render(template, {category: key, items: value}))
