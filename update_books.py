@@ -7,14 +7,13 @@ import io
 books = os.listdir('books')
 present = json.load(io.open("data/books.json", 'r', encoding='utf8'), encoding='utf8')
 for b in books:
-	b = b.encode("utf8")
 	ishere = b in [p['filename'] for p in present]
 	if not ishere:
 		present.append({"filename": b, "name": b})
 
 for b in present[:]:
 	if b['filename'] not in books:
-		present.remove(b)
+		# present.remove(b)
 		pass
 
 print(present)
