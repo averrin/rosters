@@ -16,4 +16,5 @@ for b in present[:]:
 		present.remove(b)
 
 with io.open("data/books.json", 'w', encoding='utf8') as f:
-	json.dump(present, f, indent=4, ensure_ascii=False, encoding="utf-8")
+	dump = json.dumps(present, f, indent=4, ensure_ascii=False, encoding="utf-8").decode("utf8")
+	f.write(dump)
