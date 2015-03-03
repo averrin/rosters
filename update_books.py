@@ -2,9 +2,10 @@
 
 import json
 import os, sys
+import io
 
 books = os.listdir('books')
-present = json.load(file("data/books.json", 'r'))
+present = json.load(io.open("data/books.json", 'r', encoding='utf8'))
 for b in books:
 	ishere = b in [p['filename'] for p in present]
 	if not ishere:
@@ -14,5 +15,5 @@ for b in present[:]:
 	if b['filename'] not in books:
 		present.remove(b)
 
-with file("data/books.json", 'w') as f:
+with io.open("data/books.json", 'w', encoding='utf8') as f:
 	json.dump(present, f, indent=4, ensure_ascii=False, encoding="utf-8")
