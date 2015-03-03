@@ -9,10 +9,12 @@
   {"name": "Wraithguards", "count": 5, "painted": 0},
   {"name": "Howling Banshees", "count": 6, "painted": 0, "photos": "https://plus.google.com/109244230201330822611/posts/NrZJgf1LJpU"},
   {"name": "Death Jester", "count": 1, "painted": 0},
+  {"name": "Solitaire", "count": 1, "painted": 0},
   {"name": "Shadowseer", "count": 1, "painted": 0, "photos": "https://plus.google.com/109244230201330822611/posts/dJBaHj1Dp12"},
-  {"name": "Harlequin Troupe", "count": 5, "painted": 0},
-  {"name": "Harlequin Troupe Master", "count": 1, "painted": 0},
-  {"name": "Shadow Spectres", "count": 5, "painted": 0, "photos": "https://plus.google.com/109244230201330822611/posts/dJBaHj1Dp12"}
+  {"name": "Harlequin Troupe", "count": 10, "painted": 0},
+  {"name": "Harlequin Troupe Master", "count": 2, "painted": 0},
+  {"name": "Shadow Spectres", "count": 5, "painted": 0, "photos": "https://plus.google.com/109244230201330822611/posts/dJBaHj1Dp12"},
+  {"name": "Startweaver", "count": 1, "painted": 0}
 ],
 "Dark Angels": [
   {"name": "Tactical Squad", "count": 9, "painted": 9, "photos": "https://plus.google.com/109244230201330822611/posts/QioLDGMxRCZ"},
