@@ -29,6 +29,11 @@ span.badge.new:after {
 .btn.secondary-content {
 	background-color: #353535;
 }
+.preloader {
+	margin-top: 60px;
+}
+
+
 .eldars1 {
 	background-image: url("images/eldars1.png");
 	background-position-y: -300px;
