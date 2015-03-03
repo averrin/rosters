@@ -12,7 +12,7 @@ for b in books:
 
 for b in present[:]:
 	if b['filename'] not in books:
-		presnt.remove(b)
+		present.remove(b)
 
 with file("data/books.json", 'w') as f:
 	json.dump(present, f, indent=4, ensure_ascii=False, encoding="utf-8")
