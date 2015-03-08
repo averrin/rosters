@@ -61,6 +61,12 @@
       "rosz": "Tactical 250.rosz",
       "title": "Dark Angels, Tactical squad + Company Master",
       "class": "da4"
+    },
+    {
+      "html": "Orkz 250.html",
+      "rosz": "Orkz 250.rosz",
+      "title": "Orkz",
+      "class": "orkz1"
     }
   ]
 }
