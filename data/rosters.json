@@ -67,6 +67,12 @@
       "rosz": "Orkz 250.rosz",
       "title": "Orkz",
       "class": "orkz1"
+    },
+    {
+      "html": "Harlequins 250.html",
+      "rosz": "Harlequins 250.rosz",
+      "title": "Harlequins",
+      "class": "harlequins1"
     }
   ]
 }

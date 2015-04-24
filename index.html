@@ -22,7 +22,9 @@
 		    <li id="rosters_link"><a href="#/rosters">Rosters</a></li>
 		    <li id="models_link"><a href="#/models">Models</a></li>
 		    <li id="books_link"><a href="#/books">Books</a></li>
+            <li id="comix_link"><a href="#/comix">Graphic Novels</a></li>
 		    <li><a href="http://wh40k.averr.in">Blog</a></li>
+		    <li><a href="/graphomania">Graphomania</a></li>
 	    </ul>
 	    <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
     </nav>
@@ -71,6 +73,7 @@
     	</div>
 
     	<div id="books" style="display: none;"></div>
+        <div id="comix" style="display: none;"></div>
   	 </div>
 	</main>
 
@@ -112,11 +115,19 @@
 			'{{/items}}' +
 			'</div>';
 
+            var comix_template = '<h4>Graphic Novels</h4>' +
+            '<div class="collection">' +
+            '{{#items}}' +
+          '  <a class="collection-item" href="#">{{book:title}}</a>' +
+          '{{/items}}' +
+          '</div>';
+
 			function hideAll(){
 				$('.preloader-wrapper').show();
 				$('#rosters').hide();
 				$('#models').hide();
 				$('#books').hide();
+                $('#comix').hide();
 				$('#buttons').hide();
 				$('nav li').removeClass('active')
 			}
@@ -176,10 +187,21 @@
 					$('#books_link').addClass('active');
 				})
 			}
+            function comix(){
+				hideAll()
+				$.get("data/comix.json", function(data){
+					$('.preloader-wrapper').hide()
+					$('#comix').show();
+					$('#comix').html(Mustache.render(comix_template, {items: data}))
+					$('title').html('My graphic novels')
+					$('#comix_link').addClass('active');
+				})
+			}
 			var routes = {
 		        '/rosters': rosters,
 		        '/models': models,
-		        '/books': books
+		        '/books': books,
+                '/comix': comix
 		      };
 
      		var router = Router(routes);
@@ -191,4 +213,3 @@
       </script>
     </body>
   </html>
-
